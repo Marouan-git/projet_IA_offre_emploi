@@ -1,0 +1,88 @@
+{% load static %}
+{% block sidebar %}
+
+
+ <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu ">
+
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="{% url 'index' %}" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="{% static 'images/logo-sm.png' %}" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'images/logo-dark.png' %}" alt="" height="20">
+                        </span>
+                    </a>
+
+                    <a href="{% url 'index' %}" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="{% static 'images/logo-sm.png' %}" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="{% static 'images/logo-sm.png' %}" alt="" height="20">
+                        </span>
+                    </a>
+                </div>
+
+                <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect vertical-menu-btn">
+                    <i class="fa fa-fw fa-bars"></i>
+                </button>
+
+                <div data-simplebar class="sidebar-menu-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="{% url 'index' %}">
+                                    <i class="uil-home-alt"></i><span class="badge rounded-pill bg-primary float-end">01</span>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li class="menu-title">Outils</li>
+
+                            <li>
+                                <a href="{% url 'calendar' %}" class="waves-effect">
+                                    <i class="uil-calender"></i>
+                                    <span>Calendrier</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{% url 'avancer' %}" class="waves-effect">
+                                    <i class="uil-calender"></i>
+                                    <span>Recherche avancé</span>
+                                </a>
+                            </li>
+
+                            
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="uil-store"></i>
+                                    <span>Aide candidature</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="https://www.regionsjob.com/conseils/cv">Conseil cv</a></li>
+                                    <li><a href="https://www.regionsjob.com/conseils/lettre-motivation">Rediger lettre motivation</a></li>
+                                    <li><a href="https://www.regionsjob.com/conseils/candidature-spontanee">Candidature spontanee</a></li>
+                                    <li><a href="https://www.regionsjob.com/conseils/entretien-embauche">Entretien embauche</a></li>
+                                    <li><a href="https://www.regionsjob.com/conseils/organiser-recherche-emploi">Organiser recherche emploi</a></li>
+         
+                                </ul>
+                            </li>                          
+                            
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->
+           
+{% endblock %}            
+

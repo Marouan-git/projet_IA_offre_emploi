@@ -1,0 +1,37 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Dark Sidebar | Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+        {% include 'partial/css.html' %} 
+    </head>
+
+    <body data-sidebar="dark">
+        <div id="layout-wrapper">
+            {% include 'partial/header.html' %}
+            {% include 'partial/sidebar.html' %}
+            {% include 'partial/verticontent.html' %}
+
+            
+            {% include 'partial/footer.html' %}
+            
+            
+
+        </div>
+        <!-- END layout-wrapper -->
+        {% include "partial/rightsidebar.html" %}
+        {% include "partial/javascript.html" %}
+
+
+
+
+</html>
