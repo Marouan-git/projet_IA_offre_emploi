@@ -1,0 +1,250 @@
+Minible Installation in Django Python
+
+>>>Installation Python
+ ->https://www.python.org/downloads/
+
+>>For Windows OS 
+ -Download python  from windows store
+ -Select the Python's version to download.
+ -Click on the Install Now
+ -Installation in Process
+
+>>For Linux OS
+ -sudo apt update
+ -sudo apt install python3
+	
+>>>Open terminal
+ -python --version
+ 
+>>>To check pip version  
+  -py -m pip --version
+  -upgread pip 
+  -py -m pip install --upgrade pip
+
+>>>Installing virtualenv	
+  #linux & mac os
+   ->python3 -m pip install --user virtualenv
+  #Windows
+  ->py -m pip install --user virtualenv
+
+
+>>>Create Virtual Environment
+  #linux & mac os
+  ->python3 -m venv environment_name
+  #Windows
+  ->python -m venv environment_name
+
+>>>Activate Environment
+  #Linux & mac os
+  ->source environment_name/bin/activate
+  #Windows
+  ->environment_name\Scripts\activate
+ 
+>>>Install Django
+ #linux & mac os
+ ->pip3 install django
+ #Windows
+ ->pip install django
+ 
+>>>First please check Django properly Installed or not
+ #Linux/macOS
+ python3 -m django --version
+ #Windows
+ python  -m django --version
+
+>>>Open terminal 
+ -Goto project directory using cd command
+ 
+
+>>>Install few libraries
+->pip install django-embed-video
+->pip install django-session-timeout
+->pip install django-password-validators
+->pip install django-js-routes
+
+ >>>Mysql Database Connectivity
+-Goto settings.py of Main Directory
+->Database Configuration
+Install Package:-pip3 install mysql-client
+Install Package:-pip3 install mysqlclient
+Install Package:-pip3 install mysqlconnector
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.#databaseservername#',
+        'NAME': 'Your Database Name',
+        'USER' : 'Database User Name',
+        'PASSWORD' : 'Your Password',
+        'HOST' : "Write down Host",
+        'PORT' : 'Write down port',
+                
+    }
+}
+>>>To Create superuser 
+->python manage.py createsuperuser
+	enter username = your_username
+	enter your Email Address
+	enter your password
+	enter your password again 
+-> Windows:-python manage.py migrate
+-> Linux:-python3 manage.py migrate
+
+>>>To load Static Files:-
+>Go to Minible/setings.py
+-Add following command:-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+STATIC_ROOT= os.path.join(BASE_DIR,'assets')
+
+>Run Command In Terminal
+-python manage.py collectstatic
+
+>>>Authentication Configuration
+Windwos:-Install Package:-pip install Django-Verify-Email
+Linux:-Install Package:-pip3 install Django-Verify-Email
+-Goto settings.py of Main Directory
+
+-SMTP CONFIGURATION
+	EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+	EMAIL_HOST = 'smtp.gmail.com'
+	EMAIL_PORT = 587
+	EMAIL_USE_TLS = True
+	EMAIL_HOST_USER = '#####YOUR EMAIL ADDRESS########'
+	EMAIL_HOST_PASSWORD = '#####YOUR HOST Password########'
+	DEFAULT_FROM_EMAIL = '#####YOUR EMAIL ADDRESS########'
+	SERVER_EMAIL = '#####YOUR EMAIL ADDRESS########'
+	 
+
+
+
+>>>To Set Default Layout
+ >Goto templates/partial/base.html
+ 
+<!--===========================================================================-->
+                <!--Vertical Layout View-->
+<!--===========================================================================-->
+#STEP :-1 Select Anyone of following BodyTag 
+
+#Make changes according choice at Line No 21
+1.Dark Sidebar
+<body data-sidebar="dark">   
+
+2.Compact Sidebar
+<body data-sidebar-size="small">  
+
+3.Icon Sidebar
+<body data-keep-enlarged="true" class="vertical-collpsed">  
+
+4.Box Width Sidebar
+<body data-keep-enlarged="true" class="vertical-collpsed" data-layout-size="boxed"> 
+
+5.Prealoader Sidebar
+ <body data-sidebar=""> 
+           <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <i class="uil-shutter-alt spin-icon"></i>
+                </div>
+            </div>
+    </div>  
+
+6.Colored Sidebar
+<body data-sidebar="colored"> 
+
+STEP:-2 Select Vertical Header and Siderbar & comment the  Horizontal Header View as shown below.
+
+<!-- VERTICAL LAYOUT VIEW-->
+<!--=================================-->
+
+{% block header %}
+{% include 'partial/header.html' %}  
+{% endblock %}          
+{% block sidebar %}
+{% include 'partial/sidebar.html' %}   
+{% endblock %}    
+
+
+<!-- HORIZONTAL LAYOUT VIEW-->
+<!--=================================-->
+{% comment %} {% block header %}
+ {% include 'partial/hori-header.html' %}  
+{% endblock %}     {% endcomment %}
+
+
+
+<!--===========================================================================-->
+                        <!--Horizontal Body View-->
+<!--===========================================================================-->
+#STEP :-1 Select Anyone of following BodyTag 
+
+#Make changes according choice at Line No 21
+1.Horizontal Bar
+<body data-layout="horizontal" data-topbar="colored"> 
+
+2.Horizontal top dark Bar
+<body data-layout="horizontal" data-topbar="dark">  
+
+3.Horizontal Box Width Sidebar
+<body data-layout="horizontal" data-topbar="colored" data-layout-size="boxed">  
+
+4.Horizontal Prealoader bar
+<body data-layout="horizontal" data-topbar="colored">        
+    <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <i class="uil-shutter-alt spin-icon"></i>
+                </div>
+            </div>
+    </div> 
+
+STEP :-2 Comment the Vertical Header and Siderbar & then Select Horizontal Header View as shown below.
+<!-- VERTICAL LAYOUT HEADER & SIDEBAR-->
+<!--=================================-->
+
+{% comment %} 
+{% block header %}
+{% include 'partial/header.html' %}  
+{% endblock %}          
+{% block sidebar %}
+{% include 'partial/sidebar.html' %}   
+{% endblock %}    {% endcomment %} 
+
+
+<!-- HORIZONTAL LAYOUT HEADER-->
+<!--=================================-->
+{% block header %}
+ {% include 'partial/hori-header.html' %}  
+{% endblock %}    
+
+<!--===========================================================================-->
+
+>> To set Default light/dark/RTL Mode
+<!--===========================================================================-->
+<!--===========================================================================-->
+
+>>Go static/js/app.js
+-line number 188
+<!--===========================================================================-->
+
+
+>For Light theme
+alreadyVisited = "light-mode-switch";
+
+>For Dark theme
+alreadyVisited = "dark-mode-switch";
+
+>For RTL theme
+alreadyVisited = "rtl-mode-switch";
+# for RTL mode only
+-Goto templetes/partials/base.html
+ line number 4 
+ <html lang="en" dir="rtl">
+<!--===========================================================================-->
+<!--===========================================================================-->
+
+-> Windows:-python manage.py migrate
+-> Linux:-python3 manage.py migrate
+
+>>>Run your project
+-Windows:-python manage.py runserver
+-Linux:-python3 manage.py runserver
