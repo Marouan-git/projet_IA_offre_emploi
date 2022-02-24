@@ -28,6 +28,7 @@ class pole(models.Model):
     provenance = models.TextField()
     lang_detect = models.TextField()
     nbSkills = models.IntegerField(default=0)
+    matchedSkills = models.TextField(default=" ")
 
 
 

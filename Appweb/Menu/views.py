@@ -4,9 +4,13 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from Menu.Fonction import scrap_offre,traduction
 from .Fonction.skills_naif import extract_skills_resume
-from .forms import Filtreform,CVForm,trad
+from .Fonction.keywords import extract_keywords
+from .Fonction.cover_letter import cover_letter
+from .forms import Filtreform,CVForm,trad,bot,profile
 from .models import pole
 from django.db.models import F
+from django.db import connection
+
 
 # Create your views here.
 
@@ -39,8 +43,6 @@ def index(request):
 def calendar(request):
     return render (request,'Menu/calendar.html')
 
-def chat(request):
-    return render (request,'Menu/chat.html')  
     
 def dashboarddmap(request):
     
@@ -67,8 +69,6 @@ def dashboarddmap(request):
     return render(request, 'Menu/mapdash.html',{"context":coord,'form': form})
 
 
-def calendar(request):
-    return render (request,'Menu/calendar.html')
 
 def avancer(request):
     if request.method == "POST":
@@ -154,13 +154,17 @@ def cv(request):
         if cv.is_valid():
             pdf = request.FILES['file']
             skills = extract_skills_resume(pdf)
-
+            
+            pole.objects.update(matchedSkills=" ")
             pole.objects.update(nbSkills=0)
 
             for skill in skills:
                 
                 pole.objects.filter(description__icontains=skill).update(
                     nbSkills=F("nbSkills") + 1)
+                
+                with connection.cursor() as cursor:
+                    cursor.execute(f"UPDATE Menu_pole SET matchedSkills = matchedSkills || ' ' || '{skill.upper()}' WHERE description LIKE '%{skill}%';")
 
             req = "SELECT * FROM Menu_pole ORDER BY nbSkills DESC"
 
@@ -190,3 +194,43 @@ def tradu(request):
         form = trad()
         return render(request, "Menu/traduction.html", {'form': form})
 
+
+def chatbot(request):
+       
+    if request.method == "POST":
+        form = bot(request.POST)
+        if form.is_valid():
+            demande = form.cleaned_data['demande']
+            reponse  = "merci pour l info"
+            
+           
+            coord = {'bdd': reponse } 
+    
+        return render (request,'Menu/chatbot.html',{"context":coord,'form': form})
+    else:
+        form = bot()
+        return render(request, 'Menu/chatbot.html', {'form': form})
+
+ 
+
+
+
+def coverletter(request):
+    if request.method == "POST":
+        form = profile(request.POST)
+
+        if form.is_valid():
+            id = form.cleaned_data['id']
+            text = form.cleaned_data['text']
+            requete = pole.objects.raw(
+                f"SELECT id,description,intitule FROM Menu_pole WHERE id = {id}")
+            description = [p.description for p in requete][0]
+            intitule = [p.intitule for p in requete][0]
+            keywords = extract_keywords(description, 7)
+            letter = cover_letter(intitule, keywords, text)
+
+            coord = {'bdd': letter}
+        return render(request, 'Menu/coverletter.html', {"context": coord, 'form': form})
+    else:
+        form = profile()
+        return render(request, "Menu/coverletter.html", {'form': form})

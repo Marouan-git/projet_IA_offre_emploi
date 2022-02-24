@@ -1,6 +1,7 @@
 from .models import *
 from django import forms
 
+
 class DateInput(forms.DateInput):
     input_type = 'date'
 
@@ -22,3 +23,15 @@ class CVForm(forms.Form):
 
 class trad(forms.Form):
       id = forms.IntegerField()
+      
+      
+class bot(forms.Form):
+      demande = forms.CharField(max_length=1000)
+      
+      
+      
+      
+
+class profile(forms.Form):
+    id = forms.IntegerField()
+    text = forms.CharField(max_length=300)

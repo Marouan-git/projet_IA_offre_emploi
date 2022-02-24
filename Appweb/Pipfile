@@ -17,6 +17,11 @@ bs4 = "*"
 langdetect = "*"
 pdfplumber = "*"
 deep-translator = "*"
+celery = "*"
+channels-redis = "*"
+redis = "*"
+keybert = "*"
+openai = "*"
 
 [dev-packages]
 
