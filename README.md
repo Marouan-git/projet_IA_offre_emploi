@@ -28,7 +28,8 @@ L'API d'Azure Named Entity Recognition et le modèle naïf correspondant nous on
 
 ### Azure NER
 
-1ère étape : extraire les entités (Personnes, organisations, compétences...) du CV pdf fourni par l'utilisateur :
+1ère étape : extraire les entités (Personnes, organisations, compétences...) du CV pdf fourni par l'utilisateur.
+Paramètres à fournir : clé API Azure, endpoint du service d'Azure (cognitive services), nom du fichier pdf correspondant au CV.
 
 ```py
 from ner_skills import extract_entities, extract_skills_from_entities
@@ -36,7 +37,8 @@ from ner_skills import extract_entities, extract_skills_from_entities
 entities = extract_entities(API_key, endpoint, CVpdf)
 ```
 
-2ème étape : extraire les compétences des entités :
+2ème étape : extraire les compétences des entités.
+Paramètre à fournir : les entités extraites du texte à l'aide de l'API d'Azure. 
 
 ```py
 skills = extract_skills_from_entities(entities)
@@ -44,6 +46,8 @@ print(skills)
 ```
 
 ### Modèle naïf d'extraction des compétences d'un CV pdf
+
+Paramètre à fournir : nom du fichier pdf correspondant au CV.
 
 ```py
 from skills_naif import extract_skills_resume
@@ -54,7 +58,27 @@ print(skills)
 
 ## Keywords extraction (KeyBERT)
 
-KeyBERT est un projet Python qui a pour but de simplifier l'extraction de mots-clés d'un texte 
+Fichier correspondant : keywords.py
+
+KeyBERT est un projet Python qui a pour but de simplifier l'extraction de mots-clés d'un texte.
+Ce modèle nous a servi à extraire les mots-clés de la description d'une offre pour laquelle l'utilisateur aimerait postuler.
+Ces mots-clés sont ensuite utilisés pour adapter la génération de la lettre de motivation à la description de l'offre en question.
+
+Paramètres à fournir : le texte dont on veut extraire les mots-clés, le nombre de mots-clés à extraire.
+
+```py
+from keywords import extract_keywords
+
+keywords = extract_keywords(text, nb_keywords)
+print(keywords)
+```
+
+## Génération d'une lettre de motivation avec le module de complétion de l'API OpenAI
+
+Fichier correspondant : cover_letter.py
+
+L'API d'OpenAI fournit un service de complétion permettant de générer du texte à partir d'un bout de texte écrit par l'utilisateur.
+Nous l'avons utilisé pour 
 
 
 
