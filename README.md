@@ -13,7 +13,7 @@ Cette application contient :
 - Un système de recherche avancée qui permet d'afficher les offres d'emploi correspondant à certains critères (métier, date, mots-clés...)
 - Un système de recommandation d'offres basé sur les compétences du CV de l'utilisateur
 - Un système de génération de lettre de motivation adaptée à l'intitulé et aux mots-clés d'une offre sélectionnée par l'utilisateur ainsi qu'à son profil 
-- Une fonction de traduction des offres (anglais --> français | français --> anglais)
+- Une fonction de traduction des offres (toute langue --> français | français --> anglais)
 - Un chatbot qui apporte une assistance à l'utilisateur dans sa candidature
 
 # Modèles utilisés
@@ -78,7 +78,32 @@ print(keywords)
 Fichier correspondant : cover_letter.py
 
 L'API d'OpenAI fournit un service de complétion permettant de générer du texte à partir d'un bout de texte écrit par l'utilisateur.
-Nous l'avons utilisé pour 
+Nous l'avons utilisé pour générer une lettre de motivation adaptée à l'offre sélectionnée par l'utilisateur et à son profile.
+
+Paramètres à fournir : intitulé de l'offre, mots-clés de l'offre, profil de l'utilisateur, clé de l'API
+
+```py
+from cover_letter import cover_letter
+
+letter = cover_letter(intitule, keywords, profile, APIkey)
+print(letter)
+```
+
+## Détection du langage et traduction
+
+Fichier correspondant : traduction.py
+
+Les bibliothèques python utilisées sont langdetect et deeptranslator. La première permet de détecter le langage utilisé dans le texte et la seconde permet de le traduire.
+
+Paramètre à fournir : texte à traduire
+
+```py
+from traduction import translate
+
+texte_traduit = translate(text)
+print(texte_traduit)
+```
+
 
 
 
