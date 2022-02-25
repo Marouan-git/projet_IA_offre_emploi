@@ -43,7 +43,18 @@ skills = extract_skills_from_entities(entities)
 print(skills)
 ```
 
+### Modèle naïf d'extraction des compétences d'un CV pdf
 
+```py
+from skills_naif import extract_skills_resume
+
+skills = extract_skills_resume(CVpdf)
+print(skills)
+```
+
+## Keywords extraction (KeyBERT)
+
+KeyBERT est un projet Python qui a pour but de simplifier l'extraction de mots-clés d'un texte 
 
 
 
