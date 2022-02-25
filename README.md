@@ -16,6 +16,23 @@ Cette application contient :
 - Une fonction de traduction des offres (toute langue --> français | français --> anglais)
 - Un chatbot qui apporte une assistance à l'utilisateur dans sa candidature
 
+# Lien vers l'application en ligne
+
+# Lancement de l'application en local
+
+Cloner le projet :
+
+`git clone url_repo`
+
+Se déplacer dans le dossier Appweb :
+
+`cd Appweb`
+
+Exécuter la commande suivante :
+
+`python manage.py runserver`
+
+
 # Modèles utilisés
 
 Les modèles utilisés pour ajouter des fonctionnalités intelligentes à l'application se trouvent dans la branche model. Ci-dessous une brève description de chacun des modèles utilisés.
