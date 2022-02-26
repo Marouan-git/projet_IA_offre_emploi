@@ -2,14 +2,15 @@ from this import d
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from Menu.Fonction import scrap_offre,traduction
+from Menu.Fonction import scrap_offre,traduction,botchat,graphique
 from .Fonction.skills_naif import extract_skills_resume
 from .Fonction.keywords import extract_keywords
 from .Fonction.cover_letter import cover_letter
-from .forms import Filtreform,CVForm,trad,bot,profile
+from .forms import Filtreform,CVForm,trad,profile,bot
 from .models import pole
 from django.db.models import F
 from django.db import connection
+
 
 
 # Create your views here.
@@ -35,7 +36,14 @@ def login(request):
             return render(request, 'Authentication/login.html')
             
 def index(request):
-    return render (request,'Menu/index.html')
+    occurence = graphique.requetage()
+    n,d = graphique.nbr_techno_trouver_descriptif()
+    dic_occ = dict(sorted(n.items(),reverse=True, key=lambda item: item[1]))
+    print(dic_occ)
+    coord = {'bdd':occurence ,
+             'occ' : dic_occ}
+    
+    return render (request,'Menu/index.html',context = coord)
 
  
 
@@ -200,13 +208,20 @@ def chatbot(request):
     if request.method == "POST":
         form = bot(request.POST)
         if form.is_valid():
-            demande = form.cleaned_data['demande']
-            reponse  = "merci pour l info"
-            
-           
-            coord = {'bdd': reponse } 
-    
-        return render (request,'Menu/chatbot.html',{"context":coord,'form': form})
+            demande = form.cleaned_data['demande']                                               
+
+            bot_call = botchat.get_response(demande)
+            print(type(bot_call))
+            list_bot_call=  bot_call
+
+            if type(list_bot_call) == list : 
+               
+               coordo = {'list_call': list_bot_call }
+
+               return render (request,'Menu/chatbot.html',{"context":coordo,'form': form}) 
+            else:
+                coord = {'bdd': bot_call }  
+                return render (request,'Menu/chatbot.html',{"context":coord,'form': form})
     else:
         form = bot()
         return render(request, 'Menu/chatbot.html', {'form': form})

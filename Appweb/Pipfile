@@ -22,6 +22,10 @@ channels-redis = "*"
 redis = "*"
 keybert = "*"
 openai = "*"
+"azure.ai.textanalytics" = "*"
+fontawesomefree = "*"
+counter = "*"
+nltk = "*"
 
 [dev-packages]
 

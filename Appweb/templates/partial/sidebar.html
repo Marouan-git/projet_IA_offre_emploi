@@ -1,7 +1,7 @@
 {% load static %}
+
 {% block sidebar %}
-
-
+<script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
  <!-- ========== Left Sidebar Start ========== -->
             <div class="vertical-menu ">
 
@@ -50,28 +50,28 @@
 
                             <li>
                                 <a href="{% url 'dashboard_map' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
-                                    <span>Cartographie des offres</span>
+                                    <span class="iconify" data-icon="carbon:map"></span>
+                                    <span>Cartographie</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{% url 'avancer' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
+                                    <span class="iconify" data-icon="et:search"></span>
                                     <span>Recherche avancé</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{% url 'cv' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
+                                    <span class="iconify" data-icon="fa6-solid:brain"></span>
                                     <span>Matching CV pdf</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="{% url 'lettre_motivation' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
+                                    <span class="iconify" data-icon="fa6-solid:brain"></span>
                                     <span>Lettre motivation</span>
                                 </a>
                             </li>
@@ -80,7 +80,7 @@
 
                             <li>
                                 <a href="{% url 'tradu' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
+                                    <span class="iconify" data-icon="fa6-solid:brain"></span>
                                     <span>Traduire Description</span>
                                 </a>
                             </li>
@@ -88,7 +88,7 @@
 
                             <li>
                                 <a href="{% url 'chatbot' %}" class="waves-effect">
-                                    <i class="fas fa-table"></i>
+                                    <span class="iconify" data-icon="carbon:bot"></span>
                                     <span>Assistance</span>
                                 </a>
                             </li>
@@ -96,14 +96,14 @@
 
                             <li>
                                 <a href="{% url 'calendar' %}" class="waves-effect">
-                                    <i class="uil-calender"></i>
-                                    <span>Calendrier</span>
+                                    <span class="iconify" data-icon="uil:calendar-alt"></span>
+                                     <span>Calendrier</span>
                                 </a>
                             </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="uil-store"></i>
+                                    <span class="iconify" data-icon="clarity:help-solid-badged"></span>
                                     <span>Aide candidature</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
@@ -118,7 +118,7 @@
                             
                             <li>
                                 <a href="{% url 'maj_offre' %}" class="waves-effect">
-                                    <i class="uil-calender"></i>
+                                    <span class="iconify" data-icon="clarity:update-line"></span>
                                     <span>Mise à jour offre</span>
                                 </a>
                             </li>

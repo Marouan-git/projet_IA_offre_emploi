@@ -1,19 +1,31 @@
 /* radar chart */
 var optionsRadar = {
     series: [{
-    data: [60,70,40,20]
+    data: nombre_annonce
   }],
     chart: {
     height: 500,
     type: 'radar',
   },
 
+  legend: {
+    show: true
+    
+  },
 
+  dataLabels: {
+    enabled: true,
+    background: {
+      enabled: true,
+      borderRadius:2,
+    }
+  },
 
   xaxis: {
     categories: ["Scientist","Engineer","Analyst","Manager"]
     
  }
+
   };
   
   var chartRadar = new ApexCharts(document.querySelector("#chartRadar"), optionsRadar);
@@ -25,7 +37,7 @@ var optionsRadar = {
 
   var options = {
     series: [{
-    data: [21, 22, 10, 28, 16, 21, 13]
+    data: occurence
   }],
 
 
@@ -46,25 +58,18 @@ var optionsRadar = {
     }
   },
   dataLabels: {
-    enabled: false
+    enabled: true
   },
   legend: {
-    show: true
+    show: false
   },
   xaxis: {
-    categories: [
-      ['Python'],
-      ['Sql'],
-      ['Javascript'],     
-      ['R'],
-      ['C++'],
-      ['C'],
-      ['Vs-Code'], 
-    ],
+    categories: keyword
+      
+    ,
     labels: {
       style: {
-        
-        fontSize: '12px'
+        fontSize: '15px'
       }
     }
   }

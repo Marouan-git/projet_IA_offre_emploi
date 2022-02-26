@@ -59,9 +59,34 @@
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title mb-4">Frequences des competences</h4>
+                                    <h4 class="card-title mb-4">Frequence des competences</h4>
+                                    <script>
+                                        var nombre_annonce = []
+
+                                        {% for key, values in bdd.items %}
+                                        {% for values in values %}
+                                            nombre_annonce.push({{values}})
+                                        {% endfor %}
+                                        {% endfor %}                                  
+                                  </script>
+
                                 
                                     <div id="chart" class="apex-charts" dir="ltr"></div>
+
+                                    <script>                                                                             
+                                        var keyword = []
+                                        var occurence = []
+
+                                    {% for key, values in occ.items %}
+                        
+                                        keyword.push(`{{key}}`)
+                                        occurence.push({{values}})
+                                                                       
+                                    {% endfor %}  
+                                
+
+                               
+                                  </script>
                                 </div>
                             </div>
                         </div>      
