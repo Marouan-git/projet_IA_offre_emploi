@@ -13,9 +13,8 @@ from django.db import connection
 
 
 
-# Create your views here.
 
-#Dash board
+
 def login(request):
     if 'username'  in request.session:
         return redirect('index')
@@ -39,15 +38,11 @@ def index(request):
     occurence = graphique.requetage()
     n,d = graphique.nbr_techno_trouver_descriptif()
     dic_occ = dict(sorted(n.items(),reverse=True, key=lambda item: item[1]))
-    print(dic_occ)
     coord = {'bdd':occurence ,
              'occ' : dic_occ}
     
     return render (request,'Menu/index.html',context = coord)
 
- 
-
-#Apps
 def calendar(request):
     return render (request,'Menu/calendar.html')
 
@@ -76,8 +71,6 @@ def dashboarddmap(request):
 
     return render(request, 'Menu/mapdash.html',{"context":coord,'form': form})
 
-
-
 def avancer(request):
     if request.method == "POST":
         form = Filtreform(request.POST)
@@ -102,9 +95,8 @@ def avancer(request):
         } 
     return render (request,'Menu/avancer.html',{"context":coord,'form': form})
 
-
 def maj_offre(request):    
-    data_pole= scrap_offre.request_offers(id="PAR_offria_53dfa31d974f0c1f80ff7ff26d273e99ae0200e44147654b2f2ecdbfcfa2169c",
+    """data_pole= scrap_offre.request_offers(id="PAR_offria_53dfa31d974f0c1f80ff7ff26d273e99ae0200e44147654b2f2ecdbfcfa2169c",
                                         secret_key="8d6e4dd17d3ca12937e031235b836057ce7ce9e151bd80396fa9133db9fe823d")
         
     data_pole['lang_detect'] = data_pole['description'].apply(scrap_offre.language_detect)
@@ -151,10 +143,9 @@ def maj_offre(request):
             provenance = row['provenance'],
             lang_detect = row['lang_detect'],
 
-                )
+                )"""
     
     return render(request,'Menu/maj.html')
-
 
 def cv(request):
     if request.method == 'POST':
@@ -202,7 +193,6 @@ def tradu(request):
         form = trad()
         return render(request, "Menu/traduction.html", {'form': form})
 
-
 def chatbot(request):
        
     if request.method == "POST":
@@ -225,10 +215,6 @@ def chatbot(request):
     else:
         form = bot()
         return render(request, 'Menu/chatbot.html', {'form': form})
-
- 
-
-
 
 def coverletter(request):
     if request.method == "POST":

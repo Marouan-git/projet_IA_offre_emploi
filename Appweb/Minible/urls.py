@@ -11,7 +11,6 @@ urlpatterns = [
 
 
     #Components
-    path('layouts_',include('Layouts.urls')),
     #Authentication
     path('authentication_',include('Authentication.urls')),
 
