@@ -110,8 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -124,22 +122,16 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATICFILES_LOCATION = 'static'
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-STATIC_ROOT= os.path.join(BASE_DIR,'assets')
+STATICFILES_DIRS=[(os.path.join(BASE_DIR,'static'))]
 
-#SMTP CONFIGURATION
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'gaurav.themesbrand@gmail.com'
-EMAIL_HOST_PASSWORD = 'zyozlhaemqstrjuj'
-DEFAULT_FROM_EMAIL = 'gaurav.themesbrand@gmail.com'
-SERVER_EMAIL = 'gaurav.themesbrand@gmail.com'
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+INTERNAL_IPS = ['127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
