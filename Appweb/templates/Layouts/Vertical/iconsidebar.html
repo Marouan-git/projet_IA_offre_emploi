@@ -1,0 +1,53 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Icon Sidebar | Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+        {% include 'partial/css.html' %} 
+    </head>
+
+    <body data-keep-enlarged="true" class="vertical-collpsed">
+        <div id="layout-wrapper">
+            {% include 'partial/header.html' %}
+            {% include 'partial/sidebar.html' %}
+            {% include 'partial/verticontent.html' %}
+            {% include 'partial/footer.html' %}
+        
+        </div>
+        <!-- END layout-wrapper -->
+        {% include "partial/rightsidebar.html" %}
+
+
+
+
+
+
+{% block javascript %} 
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'libs/node-waves/waves.min.js' %}"></script>
+        <script src="{% static 'libs/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'libs/jquery.counterup/jquery.counterup.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <script src="{% static 'js/pages/dashboard.init.js' %}"></script>
+
+        <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
+</body>
+</html>
