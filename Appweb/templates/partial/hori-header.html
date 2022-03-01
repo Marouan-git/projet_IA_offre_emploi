@@ -1,0 +1,952 @@
+{% load static %} 
+{% block horiheader %}
+<header id="page-topbar">
+  <div class="navbar-header">
+    <div class="d-flex">
+      <!-- LOGO -->
+      <div class="navbar-brand-box">
+        <a href="{% url 'index' %}" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="{% static  'images/logo-sm.png' %}" alt="" height="22" />
+          </span>
+          <span class="logo-lg">
+            <img
+              src="{% static  'images/logo-dark.png' %}"
+              alt=""
+              height="20"
+            />
+          </span>
+        </a>
+
+        <a href="{% url 'index' %}" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="{% static  'images/logo_app-sm.png' %}" alt="" height="22" />
+          </span>
+          <span class="logo-lg">
+            <img
+              src="{% static  'images/logo_app-sm.png' %}"
+              alt=""
+              height="20"
+            />
+          </span>
+        </a>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
+        data-bs-toggle="collapse"
+        data-bs-target="#topnav-menu-content"
+      >
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+
+      <!-- App Search-->
+      <form class="app-search d-none d-lg-block">
+        <div class="position-relative">
+          <input type="text" class="form-control" placeholder="Search..." />
+          <span class="uil-search"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="d-flex">
+      <div class="dropdown d-inline-block d-lg-none ms-2">
+        <button
+          type="button"
+          class="btn header-item noti-icon waves-effect"
+          id="page-header-search-dropdown"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="uil-search"></i>
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+          aria-labelledby="page-header-search-dropdown"
+        >
+          <form class="p-3">
+            <div class="form-group m-0">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search ..."
+                  aria-label="Recipient's username"
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                    <i class="mdi mdi-magnify"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="dropdown d-inline-block language-switch">
+        <button
+          type="button"
+          class="btn header-item waves-effect"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class=""
+            src="{% static  'images/flags/us.jpg' %}"
+            alt="Header Language"
+            height="16"
+          />
+        </button>
+        <div class="dropdown-menu dropdown-menu-end">
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="{% static  'images/flags/spain.jpg' %}"
+              alt="user-image"
+              class="me-1"
+              height="12"
+            />
+            <span class="align-middle">Spanish</span>
+          </a>
+
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="{% static  'images/flags/germany.jpg' %}"
+              alt="user-image"
+              class="me-1"
+              height="12"
+            />
+            <span class="align-middle">German</span>
+          </a>
+
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="{% static  'images/flags/italy.jpg' %}"
+              alt="user-image"
+              class="me-1"
+              height="12"
+            />
+            <span class="align-middle">Italian</span>
+          </a>
+
+          <!-- item-->
+          <a href="javascript:void(0);" class="dropdown-item notify-item">
+            <img
+              src="{% static  'images/flags/russia.jpg' %}"
+              alt="user-image"
+              class="me-1"
+              height="12"
+            />
+            <span class="align-middle">Russian</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="dropdown d-none d-lg-inline-block ms-1">
+        <button
+          type="button"
+          class="btn header-item noti-icon waves-effect"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="uil-apps"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+          <div class="px-lg-2">
+            <div class="row g-0">
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/github.png' %}"
+                    alt="Github"
+                  />
+                  <span>GitHub</span>
+                </a>
+              </div>
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/bitbucket.png' %}"
+                    alt="bitbucket"
+                  />
+                  <span>Bitbucket</span>
+                </a>
+              </div>
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/dribbble.png' %}"
+                    alt="dribbble"
+                  />
+                  <span>Dribbble</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="row g-0">
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/dropbox.png' %}"
+                    alt="dropbox"
+                  />
+                  <span>Dropbox</span>
+                </a>
+              </div>
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/mail_chimp.png' %}"
+                    alt="mail_chimp"
+                  />
+                  <span>Mail Chimp</span>
+                </a>
+              </div>
+              <div class="col">
+                <a class="dropdown-icon-item" href="#">
+                  <img
+                    src="{% static  'images/brands/slack.png' %}"
+                    alt="slack"
+                  />
+                  <span>Slack</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown d-none d-lg-inline-block ms-1">
+        <button
+          type="button"
+          class="btn header-item noti-icon waves-effect"
+          data-bs-toggle="fullscreen"
+        >
+          <i class="uil-minus-path"></i>
+        </button>
+      </div>
+
+      <div class="dropdown d-inline-block">
+        <button
+          type="button"
+          class="btn header-item noti-icon waves-effect"
+          id="page-header-notifications-dropdown"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="uil-bell"></i>
+          <span class="badge bg-danger rounded-pill">3</span>
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+          aria-labelledby="page-header-notifications-dropdown"
+        >
+          <div class="p-3">
+            <div class="row align-items-center">
+              <div class="col">
+                <h5 class="m-0 font-size-16">Notifications</h5>
+              </div>
+              <div class="col-auto">
+                <a href="#!" class="small"> Mark all as read</a>
+              </div>
+            </div>
+          </div>
+          <div data-simplebar style="max-height: 230px">
+            <a href="#" class="text-reset notification-item">
+              <div class="media">
+                <div class="avatar-xs me-3">
+                  <span
+                    class="avatar-title bg-primary rounded-circle font-size-16"
+                  >
+                    <i class="uil-shopping-basket"></i>
+                  </span>
+                </div>
+                <div class="media-body">
+                  <h6 class="mt-0 mb-1">Your order is placed</h6>
+                  <div class="font-size-12 text-muted">
+                    <p class="mb-1">
+                      If several languages coalesce the grammar
+                    </p>
+                    <p class="mb-0">
+                      <i class="mdi mdi-clock-outline"></i> 3 min ago
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="text-reset notification-item">
+              <div class="media">
+                <img
+                  src="{% static  'images/users/avatar-3.jpg' %}"
+                  class="me-3 rounded-circle avatar-xs"
+                  alt="user-pic"
+                />
+                <div class="media-body">
+                  <h6 class="mt-0 mb-1">James Lemire</h6>
+                  <div class="font-size-12 text-muted">
+                    <p class="mb-1">It will seem like simplified English.</p>
+                    <p class="mb-0">
+                      <i class="mdi mdi-clock-outline"></i> 1 hours ago
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="text-reset notification-item">
+              <div class="media">
+                <div class="avatar-xs me-3">
+                  <span
+                    class="avatar-title bg-success rounded-circle font-size-16"
+                  >
+                    <i class="uil-truck"></i>
+                  </span>
+                </div>
+                <div class="media-body">
+                  <h6 class="mt-0 mb-1">Your item is shipped</h6>
+                  <div class="font-size-12 text-muted">
+                    <p class="mb-1">
+                      If several languages coalesce the grammar
+                    </p>
+                    <p class="mb-0">
+                      <i class="mdi mdi-clock-outline"></i> 3 min ago
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="#" class="text-reset notification-item">
+              <div class="media">
+                <img
+                  src="{% static  'images/users/avatar-4.jpg' %}"
+                  class="me-3 rounded-circle avatar-xs"
+                  alt="user-pic"
+                />
+                <div class="media-body">
+                  <h6 class="mt-0 mb-1">Salena Layfield</h6>
+                  <div class="font-size-12 text-muted">
+                    <p class="mb-1">
+                      As a skeptical Cambridge friend of mine occidental.
+                    </p>
+                    <p class="mb-0">
+                      <i class="mdi mdi-clock-outline"></i> 1 hours ago
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="p-2 border-top d-grid">
+            <a
+              class="btn btn-sm btn-link font-size-14 text-center"
+              href="javascript:void(0)"
+            >
+              <i class="uil-arrow-circle-right me-1"></i> View More..
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="dropdown d-inline-block">
+        <button
+          type="button"
+          class="btn header-item waves-effect"
+          id="page-header-user-dropdown"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class="rounded-circle header-profile-user"
+            src="{% static  'images/users/avatar-4.jpg' %}"
+            alt="Header Avatar"
+          />
+          <span class="d-none d-xl-inline-block ms-1 fw-medium font-size-15"
+            >{{user.username}}</span
+          >
+          <i class="uil-angle-down d-none d-xl-inline-block font-size-15"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end">
+          <!-- item-->
+          <a class="dropdown-item" href="#"
+            ><i
+              class="uil uil-user-circle font-size-18 align-middle text-muted me-1"
+            ></i>
+            <span class="align-middle">View Profile</span></a
+          >
+          <a class="dropdown-item" href="#"
+            ><i
+              class="uil uil-wallet font-size-18 align-middle me-1 text-muted"
+            ></i>
+            <span class="align-middle">My Wallet</span></a
+          >
+          <a class="dropdown-item d-block" href="#"
+            ><i
+              class="uil uil-cog font-size-18 align-middle me-1 text-muted"
+            ></i>
+            <span class="align-middle">Settings</span>
+            <span class="badge bg-soft-success rounded-pill mt-1 ms-2"
+              >03</span
+            ></a
+          >
+          <span> {%if user.is_authenticated %}</span>
+          <a class="dropdown-item" href="{% url 'password_change' %}"
+            ><i
+              class="uil uil-edit-alt font-size-18 align-middle me-1 text-muted"
+            ></i>
+            <span class="align-middle"> Change Password</span></a
+          >
+          <a class="dropdown-item" href="{% url 'logout' %}"
+            ><i
+              class="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"
+            ></i>
+            <span class="align-middle" style="color:red"> Log Out</span></a
+          >
+
+          {% else %}
+
+          <a class="dropdown-item" href="{% url 'login' %}"
+            ><i
+              class="uil uil-sign-in-alt font-size-18 align-middle me-1 text-muted"
+            ></i>
+            <span class="align-middle" style="color:red" >Logout</span></a
+          >
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="dropdown d-inline-block">
+        <button
+          type="button"
+          class="btn header-item noti-icon right-bar-toggle waves-effect"
+        >
+          <i class="uil-cog"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="topnav">
+      <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+        <div class="collapse navbar-collapse" id="topnav-menu-content">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">
+                <i class="uil-home-alt me-2"></i> Dashboard
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle arrow-none"
+                href="#"
+                id="topnav-uielement"
+                role="button"
+              >
+                <i class="uil-flask me-2"></i>UI Elements
+                <div class="arrow-down"></div>
+              </a>
+
+              <div
+                class="dropdown-menu mega-dropdown-menu px-2 dropdown-mega-menu-xl"
+                aria-labelledby="topnav-uielement"
+              >
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div>
+                      <a href="#" class="dropdown-item"
+                        >Alerts</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Buttons</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Cards</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Carousel</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Dropdowns</a
+                      >
+                      <a href="#" class="dropdown-item">Grid</a>
+                      <a href="#" class="dropdown-item"
+                        >Images</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div>
+                      <a href="#" class="dropdown-item"
+                        >Lightbox</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Modals</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Range Slider</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Session Timeout</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Progress Bars</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Sweet-Alert</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Tabs & Accordions</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div>
+                      <a href="#" class="dropdown-item"
+                        >Typography</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Video</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >General</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Colors</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Rating</a
+                      >
+                      <a href="#" class="dropdown-item"
+                        >Notifications</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle arrow-none"
+                href="#"
+                id="topnav-pages"
+                role="button"
+              >
+                <i class="uil-apps me-2"></i>Apps
+                <div class="arrow-down"></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="topnav-pages">
+                <a href="#" class="dropdown-item"
+                  >Calendar</a
+                >
+                <a href="#" class="dropdown-item">Chat</a>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-email"
+                    role="button"
+                  >
+                    Email
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-email">
+                    <a href="#" class="dropdown-item">Inbox</a>
+                    <a href="#" class="dropdown-item"
+                      >Read Email</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-ecommerce"
+                    role="button"
+                  >
+                    Ecommerce
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-ecommerce">
+                    <a href="#" class="dropdown-item"
+                      >Products</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Product Detail</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Orders</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Customers</a
+                    >
+                    <a href="#" class="dropdown-item">Cart</a>
+                    <a href="#" class="dropdown-item"
+                      >Checkout</a
+                    >
+                    <a href="#" class="dropdown-item">Shops</a>
+                    <a href="#" class="dropdown-item"
+                      >Add Product</a
+                    >
+                  </div>
+                </div>
+
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-invoice"
+                    role="button"
+                  >
+                    Invoices
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-invoice">
+                    <a href="#" class="dropdown-item"
+                      >Invoice List</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Invoice Detail</a
+                    >
+                  </div>
+                </div>
+
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-contact"
+                    role="button"
+                  >
+                    Contacts
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-contact">
+                    <a href="#" class="dropdown-item"
+                      >User Grid</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >User List</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Profile</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle arrow-none"
+                href="#"
+                id="topnav-components"
+                role="button"
+              >
+                <i class="uil-layers me-2"></i>Components
+                <div class="arrow-down"></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="topnav-components">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-form"
+                    role="button"
+                  >
+                    Forms
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-form">
+                    <a href="#" class="dropdown-item"
+                      >Basic Elements</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Validation</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Advanced Plugins</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Editors</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >File Upload</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Xeditable</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Repeater</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Wizard</a
+                    >
+                    <a href="#" class="dropdown-item">Mask</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-table"
+                    role="button"
+                  >
+                    Tables
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-table">
+                    <a href="#" class="dropdown-item"
+                      >Bootstrap Basic</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Datatables</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Responsive</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Editable</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-charts"
+                    role="button"
+                  >
+                    Charts
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-charts">
+                    <a href="#" class="dropdown-item">Apex</a>
+                    <a href="#" class="dropdown-item"
+                      >Chartjs</a
+                    >
+                    <a href="#" class="dropdown-item">Flot</a>
+                    <a href="#" class="dropdown-item"
+                      >Jquery Knob</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Sparkline</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-icons"
+                    role="button"
+                  >
+                    Icons
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-icons">
+                    <a href="#" class="dropdown-item"
+                      >Unicons</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Boxicons</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Material Design</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Dripicons</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Font awesome</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-map"
+                    role="button"
+                  >
+                    Maps
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-map">
+                    <a href="#" class="dropdown-item"
+                      >Google Maps</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Vector Maps</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Leaflet</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle arrow-none"
+                href="#"
+                id="topnav-more"
+                role="button"
+              >
+                <i class="uil-copy me-2"></i>Extra pages
+                <div class="arrow-down"></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="topnav-more">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-auth"
+                    role="button"
+                  >
+                    Authentication
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-auth">
+                    <a href="#" class="dropdown-item">Login</a>
+                    <a href="#" class="dropdown-item"
+                      >Register</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Recover Password</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Lock Screen</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-utility"
+                    role="button"
+                  >
+                    Utility
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="topnav-utility">
+                    <a href="#" class="dropdown-item"
+                      >Starter Page</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Maintenance</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Coming Soon</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Timeline</a
+                    >
+                    <a href="#" class="dropdown-item">FAQs</a>
+                    <a href="#" class="dropdown-item"
+                      >Pricing</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Error 404</a
+                    >
+                    <a href="#" class="dropdown-item"
+                      >Error 500</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle arrow-none"
+                href="#"
+                id="topnav-layout"
+                role="button"
+              >
+                <i class="uil-window-section me-2"></i>Layouts
+                <div class="arrow-down"></div>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="topnav-layout">
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-layout-verti"
+                    role="button"
+                  >
+                    Vertical
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="topnav-layout-verti"
+                  >
+                    <a href="{% url 'darksidebar' %}" class="dropdown-item"
+                      >Dark Sidebar</a
+                    >
+                    <a href="{% url 'compactsidebar' %}" class="dropdown-item"
+                      >Compact Sidebar</a
+                    >
+                    <a href="{% url 'iconsidebar' %}" class="dropdown-item"
+                      >Icon Sidebar</a
+                    >
+                    <a href="{% url 'layoutboxed' %}" class="dropdown-item"
+                      >Boxed Width</a
+                    >
+                    <a href="{% url 'preloader' %}" class="dropdown-item"
+                      >Preloader</a
+                    >
+                    <a href="{% url 'colorsidebar' %}" class="dropdown-item"
+                      >Colored Sidebar</a
+                    >
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <a
+                    class="dropdown-item dropdown-toggle arrow-none"
+                    href="#"
+                    id="topnav-layout-hori"
+                    role="button"
+                  >
+                    Horizontal
+                    <div class="arrow-down"></div>
+                  </a>
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="topnav-layout-hori"
+                  >
+                    <a href="{% url 'horizontal' %}" class="dropdown-item"
+                      >Horizontal</a
+                    >
+                    <a href="{% url 'horitopdark' %}" class="dropdown-item"
+                      >Topbar Dark</a
+                    >
+                    <a href="{% url 'horibox' %}" class="dropdown-item"
+                      >Boxed Width</a
+                    >
+                    <a href="{% url 'horipreloader' %}" class="dropdown-item"
+                      >Preloader</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+{% endblock %}      
+    
