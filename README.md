@@ -17,8 +17,6 @@ Cette application contient :
 - Un chatbot qui apporte une assistance à l'utilisateur dans sa candidature
 - Une aide à la candidature matérialisée par une redirection vers des liens contenant divers conseils (pour la rédaction du CV, l'entretien d'embauche...)
 
-# Lien vers l'application en ligne
-
 # Lancement de l'application en local
 
 Cloner le projet :
