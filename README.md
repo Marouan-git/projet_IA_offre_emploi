@@ -34,7 +34,7 @@ Exécuter la commande suivante :
 
 # Modèles utilisés
 
-Les modèles utilisés pour ajouter des fonctionnalités intelligentes à l'application se trouvent dans la branche model. Ci-dessous une brève description de chacun des modèles utilisés.
+Ci-dessous une brève description des modèles utilisés pour ajouter des fonctionnalités intelligentes à l'application.
 
 ## Azure Named Entity Recognition (NER) et modèle naïf correspondant
 
@@ -63,6 +63,7 @@ print(skills)
 
 ### Modèle naïf d'extraction des compétences d'un CV pdf
 
+Ce modèle naïf se base sur une liste de compétences liées à la data et l'IA pré-définie (non exhaustive). Il extrait toutes les compétences du CV appartenant à cette liste.
 Paramètre à fournir : nom du fichier pdf correspondant au CV.
 
 ```py
