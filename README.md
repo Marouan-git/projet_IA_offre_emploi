@@ -1,7 +1,3 @@
-# Projet 2 - Groupe 2
-
-Membres du groupe 2 : Kamel, Marouan, Aissa
-
 # Présentation de l'application
 
 Application Django qui a pour but d'aider les personnes dans leur recherche d'emploi dans le domaine de la data et de l'IA.  
